@@ -28,6 +28,9 @@ config.set_section_option(
 config.set_section_option(
     section, "DB_HOST", os.environ.get("POSTGRES_HOST")
 )
+config.set_section_option(
+    section, "DB_NAME", os.environ.get("POSTGRES_DB")
+)
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
