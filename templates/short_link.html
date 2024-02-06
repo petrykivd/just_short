@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Your Short Link
+{% endblock %}
+
+{% block main %}
+    <body>
+    <header class="masthead">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <h1 class="mb-5">Your short link is ready!</h1>
+                        <div class="container mt-5">
+                            <div class="row">
+                                <div class="col-md-9 offset-md-1 text-center">
+                                    <div class="form-group">
+                                        <label for="copyText"></label>
+                                        <input type="text" class="form-control" id="copyText" value="{{ new_link }}"
+                                               readonly>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn-primary" onclick="copyText()"
+                                            style="width: 100px; margin-right: 10px;">Copy
+                                    </button>
+                                    <button class="btn btn-primary" style="width: 100px; margin-right: 10px"><a href="{{ new_link }}"
+                                                                                             style="text-decoration: none; color: inherit; display: inline-block; width: 100%;" target="_blank">Redirect</a>
+                                    </button>
+                                    <button class="btn btn-primary" style="width: 110px;"><a href="https://api.qrserver.com/v1/create-qr-code/?data={{ new_link }}&size=250x250"
+                                                                                             style="text-decoration: none; color: inherit; display: inline-block; width: 100%;" target="_blank">QR Code</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Підключаємо скрипт для копіювання тексту -->
+    <script>
+        function copyText() {
+            var copyText = document.getElementById("copyText");
+            copyText.select();
+            document.execCommand("copy");
+        }
+    </script>
+    </body>
+{% endblock %}
