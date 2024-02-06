@@ -25,6 +25,9 @@ config.set_section_option(
 config.set_section_option(
     section, "DB_PASS", os.environ.get("POSTGRES_PASSWORD")
 )
+config.set_section_option(
+    section, "POSTGRES_URL", os.environ.get("POSTGRES_URL")
+)
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
