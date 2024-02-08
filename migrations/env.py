@@ -19,17 +19,9 @@ if config.config_file_name is not None:
 
 
 section = config.config_ini_section
+
 config.set_section_option(
-    section, "DB_USER", os.environ.get("POSTGRES_USER")
-)
-config.set_section_option(
-    section, "DB_PASS", os.environ.get("POSTGRES_PASSWORD")
-)
-config.set_section_option(
-    section, "DB_HOST", os.environ.get("POSTGRES_HOST")
-)
-config.set_section_option(
-    section, "DB_NAME", os.environ.get("POSTGRES_DB")
+    section, "SQLALCHEMY_DATABASE_URI", os.environ.get("SQLALCHEMY_DATABASE_URI")
 )
 # add your model's MetaData object here
 # for 'autogenerate' support

@@ -4,7 +4,7 @@ services:
   web:
     build:
       context: .
-    command: bash -c "pip install -r requirements.txt && python app.py && alembic upgrade head"
+    command: bash -c "./utils/wait_for_db.sh db 5432"
     volumes:
       - ./:/app
     ports:

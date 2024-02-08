@@ -9,7 +9,8 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 RUN apt-get update \
-    && apt-get -y install libpq-dev gcc
+    && apt-get -y install libpq-dev gcc \
+    && apt-get install -y netcat
 
 COPY . .
 
